@@ -8,7 +8,13 @@ import config from './config.json';
 class App extends Component {
   
   state = { 
-    users : []
+    users : [],
+    name : '',
+    userName : '',
+    email : '',
+    city : '',
+    phone : '',
+    company : ''
    }
   
    async componentDidMount(){
@@ -18,12 +24,63 @@ class App extends Component {
   
    render() { 
     return ( 
-      <div className='container-fluid pl-5 pr-5'>
-        <Header />
-        <Table userList={this.state.users}/>
+      <div className='container'>
+        <Header userData={this.state} 
+                onNameChange={this.handleNameChange} 
+                onUsernameChange={this.handleUsernameChange} 
+                onEmailChange={this.handleEmailChange} 
+                onCityChange={this.handleCityChange} 
+                onPhoneChange={this.handlePhoneChange} 
+                onCompanyChange={this.handleCompanyChange}
+                onSubmit={this.handleSubmit}                 onUpdate={this.handleUpdate} 
+                onDelete={this.handleDelete}/>
+        <Table  userList={this.state.users}
+                onSelect={this.handleSelect} 
+/>
       </div>
      );
   }
+
+  /* Input Field changes */
+  handleNameChange = input => {
+    this.setState({ name : input })
+  }
+  handleUsernameChange = input => {
+        this.setState({ userName : input })
+  }
+  handleEmailChange = input => {
+        this.setState({ email : input })
+  }
+  handleCityChange = input => {
+        this.setState({ city : input })
+  }
+  handlePhoneChange = input => {
+        this.setState({ phone : input })
+  }
+  handleCompanyChange = input => {
+        this.setState({ company : input })
+  }
+
+  /*Submit Button */
+  handleSubmit = () => {
+    alert('submit');
+  }
+
+  /* Select Row Data To Input Fields */
+  handleSelect = () => {
+    alert('select');
+  }
+
+  /* Update List Item */
+  handleUpdate = () => {
+    alert('update');
+  }
+
+  /* Delete List Item */
+  handleDelete = () => {
+    alert('delete');
+  }
+
 }
  
 export default App;
