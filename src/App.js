@@ -2,14 +2,25 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/header';
 import Table from './components/table';
+import http from './services/httpService';
+import config from './config.json';
 
 class App extends Component {
-  state = {  }
-  render() { 
+  
+  state = { 
+    users : []
+   }
+  
+   async componentDidMount(){
+    const { data : users } = await http.get(config.apiEndPoint)
+    this.setState({ users })
+   }
+  
+   render() { 
     return ( 
       <div className='container'>
         <Header />
-        <Table />
+        <Table userList={this.state.users}/>
       </div>
      );
   }

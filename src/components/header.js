@@ -7,26 +7,26 @@ const Header = () => {
                 <h1 className='mx-auto m-5'>User Registery</h1>
             </div>
             <form>
-                <div class="form-row">
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Name" />
+                <div className="form-row">
+                    <div className="col">
+                        <input type="text" className="form-control" placeholder="Name" />
                     </div>
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Username" />
+                    <div className="col">
+                        <input type="text" className="form-control" placeholder="Username" />
                     </div>
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="email" />
+                    <div className="col">
+                        <input type="text" className="form-control" placeholder="email" />
                     </div>
                 </div>
-                <div class="form-row mt-3">
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="City" />
+                <div className="form-row mt-3">
+                    <div className="col">
+                        <input type="text" className="form-control" placeholder="City" />
                     </div>
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Phone" />
+                    <div className="col">
+                        <input type="text" className="form-control" placeholder="Phone" />
                     </div>
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Company" />
+                    <div className="col">
+                        <input type="text" className="form-control" placeholder="Company" />
                     </div>
                 </div>
             </form>

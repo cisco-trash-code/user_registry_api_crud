@@ -1,6 +1,7 @@
 import React from 'react';
 
-const Table = () => {
+const Table = props => {
+    const { userList } = props;
     return ( 
         <div className='row row-2'>
             <table className='table mt-3'>
