@@ -18,16 +18,18 @@ const Table = props => {
                     </tr>
                 </thead>
                 <tbody>
-                <tr className='row'>
-                        <td className='col-2'>Leanne Graham</td>
-                        <td className='col-1'>Bret</td>
-                        <td className='col-2'>Sincere@april.biz</td>
-                        <td className='col-1'>Gwenborough</td>
-                        <td className='col-2'>1-770-736-8031 x56442</td>
-                        <td className='col-2'>Romaguera-Crona</td>
-                        <td className='col-1'><button className='btn btn-info btn-sm'>Update</button></td>
-                        <td className='col-1'><button className='btn btn-danger btn-sm'>Delete</button></td>
-                    </tr>
+                    {userList.map(user =>
+                        <tr key={user.id} className='row'>
+                            <td className='col-2'>{user.name}</td>
+                            <td className='col-1'>{user.username}</td>
+                            <td className='col-2'>{user.email}</td>
+                            <td className='col-1'>{user.address.city}</td>
+                            <td className='col-2'>{user.phone}</td>
+                            <td className='col-2'>{user.company.name}</td>
+                            <td className='col-1'><button className='btn btn-info btn-sm'>Update</button></td>
+                            <td className='col-1'><button className='btn btn-danger btn-sm'>Delete</button></td>
+                        </tr>
+                        )}
                 </tbody>
             </table>
         </div>

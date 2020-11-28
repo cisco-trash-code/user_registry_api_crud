@@ -29,6 +29,7 @@ const Header = () => {
                         <input type="text" className="form-control" placeholder="Company" />
                     </div>
                 </div>
+                <button className='btn btn-primary mt-3 col-12 mx-auto'>Add User Detail</button>
             </form>
         </div>
      );
