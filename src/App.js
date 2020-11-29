@@ -93,46 +93,38 @@ class App extends Component {
   }
 
   /* Select Row Data To Input Fields */
-  handleSelect = async user => {
+  handleSelect = user => {
     this.setState({ 
       name : user.name,
-      userName : user.userName,
+      userName : user.userName, // <= Bug: Not clearing field value.
       email : user.email,
       city : user.address.city,
       phone : user.phone,
-      company : user.company.name
+      company : user.company.name,
+      selectUser : user
      });
   }
 
   /* Update List Item */
-  handleUpdate = () => {
-    // const newObj = {
-    //   name: this.state.name,
-    //   username: this.state.userName,
-    //   email: this.state.email,
-    //   address: {
-    //   city: this.state.city
-    //   },
-    //   phone: this.state.phone,
-    //   company: {
-    //   name: this.state.company
-    //   }
-    //   }
-    //  const users = [...this.state.users];
-    //  const index = users.indexOf(user);
-    //  users[index] = {...newObj};
-    //  this.setState({ 
-    //   users,
-    //   name : '',
-    //   userName : '', // <= Bug: Not clearing field value.
-    //   email : '',
-    //   city : '',
-    //   phone : '',
-    //   company : '',
-    //   selectUser : ''
-    //    })
-
-    //  await http.put(config.apiEndPoint + '/' + user.id);
+  handleUpdate = async () => {
+    const id = this.state.selectUser.id;
+    const users = [...this.state.users];
+    const index = users.indexOf(this.selectUser);
+    const updatedObj = {
+      name: this.state.name,
+      username: this.state.userName,
+      email: this.state.email,
+      address: {
+      city: this.state.city
+      },
+      phone: this.state.phone,
+      company: {
+      name: this.state.company
+      }
+      }
+      users[index] = {...updatedObj};
+      this.setState({ users })
+      await http.put(config.apiEndPoint + '/' + id); // Bug : Not Updating
   }
 
   /* Delete List Item */
