@@ -14,7 +14,8 @@ class App extends Component {
     email : '',
     city : '',
     phone : '',
-    company : ''
+    company : '',
+    selectUser : ''
    }
   
    async componentDidMount(){
@@ -32,7 +33,8 @@ class App extends Component {
                 onCityChange={this.handleCityChange} 
                 onPhoneChange={this.handlePhoneChange} 
                 onCompanyChange={this.handleCompanyChange}
-                onSubmit={this.handleSubmit}                 onUpdate={this.handleUpdate} 
+                onSubmit={this.handleSubmit}                 
+                onUpdate={this.handleUpdate} 
                 onDelete={this.handleDelete}/>
         <Table  userList={this.state.users}
                 onSelect={this.handleSelect} 
@@ -62,8 +64,32 @@ class App extends Component {
   }
 
   /*Submit Button */
-  handleSubmit = () => {
-    alert('submit');
+  handleSubmit = async () => {
+    const newObj = {
+      name: this.state.name,
+      username: this.state.userName,
+      email: this.state.email,
+      address: {
+      city: this.state.city
+      },
+      phone: this.state.phone,
+      company: {
+      name: this.state.company
+      }
+      }
+    const { data : user } = await http.post(config.apiEndPoint, newObj);
+    const users = [user, ...this.state.users];
+    this.setState({ 
+      users,
+      name : '',
+      userName : '', // <= Bug: Not clearing field value.
+      email : '',
+      city : '',
+      phone : '',
+      company : '',
+      selectUser : ''
+     });
+
   }
 
   /* Select Row Data To Input Fields */
