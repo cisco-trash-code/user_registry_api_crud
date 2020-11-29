@@ -93,13 +93,46 @@ class App extends Component {
   }
 
   /* Select Row Data To Input Fields */
-  handleSelect = () => {
-    alert('select');
+  handleSelect = async user => {
+    this.setState({ 
+      name : user.name,
+      userName : user.userName,
+      email : user.email,
+      city : user.address.city,
+      phone : user.phone,
+      company : user.company.name
+     });
   }
 
   /* Update List Item */
   handleUpdate = () => {
-    alert('update');
+    // const newObj = {
+    //   name: this.state.name,
+    //   username: this.state.userName,
+    //   email: this.state.email,
+    //   address: {
+    //   city: this.state.city
+    //   },
+    //   phone: this.state.phone,
+    //   company: {
+    //   name: this.state.company
+    //   }
+    //   }
+    //  const users = [...this.state.users];
+    //  const index = users.indexOf(user);
+    //  users[index] = {...newObj};
+    //  this.setState({ 
+    //   users,
+    //   name : '',
+    //   userName : '', // <= Bug: Not clearing field value.
+    //   email : '',
+    //   city : '',
+    //   phone : '',
+    //   company : '',
+    //   selectUser : ''
+    //    })
+
+    //  await http.put(config.apiEndPoint + '/' + user.id);
   }
 
   /* Delete List Item */
