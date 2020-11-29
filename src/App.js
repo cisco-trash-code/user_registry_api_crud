@@ -129,7 +129,9 @@ class App extends Component {
 
   /* Delete List Item */
   handleDelete = () => {
-    alert('delete');
+    const id = this.state.selectUser.id;
+    const users = this.state.users.filter(user => user.id !== id);
+    this.setState({ users });
   }
 
 }
